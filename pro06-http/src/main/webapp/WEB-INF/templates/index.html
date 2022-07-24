@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body bgcolor="aqua">
+    <h1>首页</h1>
+    <h2><a th:href="@{/file}">去测试文件的上传和下载</a></h2>
+    <form th:action="@{/testRequestBody}" method="post">
+        <input type="text" name="username">
+        <input type="text" name="password">
+        <input type="submit" value="测试requestBody">
+    </form>
+    <form th:action="@{/testRequestEntity}" method="post">
+        <input type="text" name="username">
+        <input type="text" name="password">
+        <input type="submit" value="测试requestEntity">
+    </form>
+    <h4><a th:href="@{/testResponse}">测试响应</a></h4>
+    <h4><a th:href="@{/testResponseBody}">测试ResponseBody返回字符串</a></h4>
+    <h4><a th:href="@{/testResponseBean}">测试ResponseBody返回javaBean</a></h4>
+    <h4 id="app"><a  @click="sendAjax"  th:href="@{/testResponseAjax}">测试ResponseBody返回Ajax</a></h4>
+
+
+    <script type="text/javascript" th:src="@{static/js/vue.js}"></script>
+    <script type="text/javascript" th:src="@{static/js/axios.min.js}"></script>
+
+    <script type="text/javascript">
+
+        let vue = new Vue({
+            el:"#app",
+            methods:{
+                sendAjax:function (event){
+                    axios({
+                        method:"post",
+                        url:event.target.href,
+                        params:{
+                            username:"hello",
+                            password:"ajax"
+                        }
+                    }).then(function (response){
+                        alert(response.data)
+                    }).catch(function (reason){
+                        alert(reason);
+                    })
+
+                    event.preventDefault();
+                }
+            }
+
+        })
+
+    </script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body bgcolor="aqua">
+    <h1>行百里者半九十而</h1>
+    <h3 th:text="${requestScope}"></h3>
+    <h3 th:text="${session.sessionScope}"></h3>
+    <h3 th:text="${application.applicationScope}"></h3>
+</body>
+</html>

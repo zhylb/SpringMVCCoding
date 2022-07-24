@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>RequestMap</h1>
+    <h4><a th:href="@{/param/index}">去另一个测试</a></h4>
+    <h4><a th:href="@{/reqMap/persist}">测试RequestMap作用在类上</a></h4>
+    <h4><a th:href="@{/reqMap/persist}">测试RequestMap value属性 - persist </a></h4>
+    <h4><a th:href="@{/reqMap/per}">测试RequestMap value属性 - per::get </a></h4>
+    <h4>
+        <form th:action="@{/reqMap/per}" method="post">
+            <input type="submit" value="测试RequestMap value属性 - per::post">
+        </form>
+    </h4>
+    <h4><a th:href="@{/reqMap/getMapping}">测试 @GetMapping属性 - /repMap/getMapping </a></h4>
+    <h4>
+        <form th:action="@{/reqMap/deleteMapping}" method="delete">
+            <input type="submit" value="测试 @deleteMapping属性 - /repMap/deleteMapping">
+        </form>
+    </h4>
+    <h4><a th:href="@{/reqMap/params(username='admin',password='root')}">测试RequestMap的params属性</a></h4>
+    <h4><a th:href="@{/reqMap/headers(username='admin',password='root')}">测试RequestMap的headers属性</a></h4>
+    <h4><a th:href="@{/reqMap/test1Ant}">测试RequestMap对Ant风格的支持 : ?</a></h4>
+    <h4><a th:href="@{/reqMap/a1a/testAnt}">测试RequestMap对Ant风格的支持 : *</a></h4>
+    <h4><a th:href="@{/reqMap/testAnt}">测试RequestMap对Ant风格的支持 : /**/</a></h4>
+
+    <h4><a th:href="@{/reqMap/login/909/admin}">测试RequestMap对路径占位符支持 : /reqMap/login/909/admin</a></h4>
+
+
+
+</body>
+</html>

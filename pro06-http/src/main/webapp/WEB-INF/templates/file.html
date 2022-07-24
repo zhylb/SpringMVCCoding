@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/uploadFile}"  method="post" enctype="multipart/form-data" >
+    <input type="file" name="photo">
+    <input type="submit" value="上传">
+</form>
+<hr>
+<form th:action="@{/uploadFileUUID}"  method="post" enctype="multipart/form-data" >
+    <input type="file" name="photo">
+    <input type="submit" value="上传UUID文件名">
+</form>
+<hr>
+
+<form th:action="@{/downloadFile}">
+    <input type="text" name="filename" value="1.jpg">
+    <input type="text" name="filepath" value="/static/img/">
+    <input type="submit" value="下载">
+</form>
+
+</body>
+</html>
